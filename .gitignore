@@ -1,0 +1,13 @@
+# Ignorar entorno virtual
+exa/
+env/
+*.pyc
+__pycache__/
+
+# Ignorar archivos del sistema
+.DS_Store
+*.swp
+
+# Ignorar configuraciones de Render y logs
+.env
+*.log

@@ -3,61 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Automatas Finitos 2</title>
+    <title>Examen - Autómatas</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #1e1e2f;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1e1e2f, #3a3a4f);
             color: #ffffff;
             text-align: center;
             padding: 20px;
         }
         h1 {
-            color: #a970ff;
+            color: #ffcc00;
+            text-transform: uppercase;
+            margin-bottom: 20px;
         }
-        form {
-            background: #29293d;
-            padding: 20px;
-            border-radius: 10px;
+        .container {
+            background: rgba(41, 41, 61, 0.9);
+            padding: 30px;
+            border-radius: 15px;
             display: inline-block;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
         }
         input, button {
-            padding: 10px;
-            margin: 10px;
-            border-radius: 5px;
+            width: 80%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
             border: none;
+            font-size: 16px;
+        }
+        input {
+            background: #2e2e4e;
+            color: #fff;
+            text-align: center;
         }
         button {
-            background-color: #a970ff;
-            color: white;
+            background: #ffcc00;
+            color: #000;
+            font-weight: bold;
             cursor: pointer;
+            transition: 0.3s;
         }
         button:hover {
-            background-color: #8358d1;
+            background: #e6b800;
         }
         ul {
             list-style: none;
             padding: 0;
         }
         li {
-            background: #3a3a4f;
-            padding: 10px;
-            margin: 5px;
-            border-radius: 5px;
+            background: #444466;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
         }
     </style>
 </head>
 <body>
-    <h1>Automatas Finitos 2</h1>
-    <form method="POST">
-        <label>Estado Inicial:</label>
-        <input type="text" name="estado_inicial">
-        <br>
-        <label>Estado Final:</label>
-        <input type="text" name="solucion">
-        <br>
-        <button type="submit">Resultado</button>
-    </form>
+    <h1>Automatas</h1>
+    <div class="container">
+        <form method="POST">
+            <label>Estado Inicial:</label>
+            <input type="text" name="estado_inicial" required>
+            <br>
+            <label>Estado Final:</label>
+            <input type="text" name="solucion" required>
+            <br>
+            <button type="submit">Resultado</button>
+        </form>
+    </div>
 
     {% if resultados %}
         <h2>Resultados:</h2>
@@ -66,9 +81,9 @@
                 <li>
                     <strong>{{ metodo }}:</strong>
                     {% if resultado[0] == "No se encontró solución." %}
-                        <p> {{ resultado[0] }}</p>
+                        <p>{{ resultado[0] }}</p>
                     {% else %}
-                        <p> {{ resultado }}</p>
+                        <p>{{ resultado }}</p>
                     {% endif %}
                 </li>
             {% endfor %}
