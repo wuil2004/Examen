@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, request
 from puzzle import ejecutar_metodo  # Importamos la lógica del puzzle
 
@@ -21,4 +22,5 @@ def index():
     return render_template("index.html", resultados=resultados)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))  # Render asigna el puerto dinámicamente
+    app.run(host="0.0.0.0", port=port, debug=True)
